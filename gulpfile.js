@@ -4,6 +4,7 @@ var directoryMap = require('gulp-directory-map');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var stylus = require('gulp-stylus');
+var deploy = require('gulp-gh-pages');
 
 
 gulp.task('static', function () {
@@ -57,5 +58,9 @@ gulp.task('stylus-watch', ['stylus'], function () {
     gulp.watch('src/stylus/**/*.styl', ['stylus']);
 });
 
-
+gulp.task('deploy', function () {
+    gulp.src('out/**/*').pipe(deploy({
+        remoteUrl: 'https://github.com/kirjs/code-howtos.git'
+    }));
+});
 gulp.task('default', ['static-watch', 'markdown-watch', 'stylus-watch', 'sitemap', 'serve']);
