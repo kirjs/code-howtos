@@ -1,3 +1,3 @@
 # Code HOWTOs gh-pages
 
-See master branch for the details
+See https://github.com/kirjs/code-howtos/ for the details
